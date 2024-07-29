@@ -50,11 +50,11 @@ To run the Jupyter notebook:
     ```bash
     jupyter notebook
     ```
-3. Open the Model_Performance_Analysis.ipynb notebook in your browser and run the cells to perform the analysis.
+3. Open the `Model_Performance_Analysis.ipynb` notebook in your browser and run the cells to perform the analysis.
 
 ## Excel File
 
-The 'model_performance_metrics_final_corrected.xlsx' file contains the final corrected performance metrics for various imputation methods, including accuracy, precision, recall, and F1 score. You can open this file using any spreadsheet software like Microsoft Excel or Google Sheets.
+The `model_performance_metrics_final_corrected.xlsx` file contains the final corrected performance metrics for various imputation methods, including accuracy, precision, recall, and F1 score. You can open this file using any spreadsheet software like Microsoft Excel or Google Sheets.
 
 ## Project Structure
 
