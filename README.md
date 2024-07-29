@@ -109,3 +109,9 @@ This project does not accept external contributions at this time. Please do not 
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
+
+## Contact
+For any questions or inquiries, please contact the project maintainer.
+
+## Acknowledgement
+This project has been completed with the support of RWTH Aachen University, Germany HPC resources.
