@@ -15,7 +15,7 @@ This project has been implemented using High-Performance Computing (HPC) resourc
 
 ## Installation
 
-To run this project, you will need to have Python 3.x installed along with the packages listed in `requirements.txt`.
+To run this project, you will need to have Python 3.9 installed along with the packages listed in `requirements.txt`.
 
 You can install the required packages using the following command:
 
