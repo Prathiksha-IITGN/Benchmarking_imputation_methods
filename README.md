@@ -39,18 +39,56 @@ Ensure that you have access to an HPC environment that meets these specification
 
 ## Usage
 
-Jupyter Notebook
+### Jupyter Notebook
 
-To run the Jupyter notebook:
+To run the Jupyter notebook on an HPC environment:
 
-1. Open a terminal and navigate to the project directory.
-
-2. Start the Jupyter notebook server by running:
-
-    ```bash
-    jupyter notebook
+1. **Log in to the HPC system**: Use SSH to log in to your HPC system. For example:
+    ```sh
+    ssh your_username@hpc_cluster_address
     ```
-3. Open the `Model_Performance_Analysis.ipynb` notebook in your browser and run the cells to perform the analysis.
+
+2. **Load necessary modules**: Load the required modules if necessary (this step depends on your HPC's module system). For example:
+    ```sh
+    module load python/3.9
+    module load anaconda
+    ```
+
+3. **Set up a JupyterLab profile**: Configure your JupyterLab profile if needed.
+
+4. **Start a Jupyter notebook session**: Start a Jupyter notebook session on a compute node. You might need to use a job scheduler (like SLURM). Create a job script `run_jupyter.sh` with the following content:
+    ```sh
+    #!/bin/bash
+    #SBATCH --job-name=jupyter
+    #SBATCH --partition=c18g
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=48
+    #SBATCH --mem=180G
+    #SBATCH --gres=gpu:2
+    #SBATCH --time=09:00:00
+
+    module load python/3.9
+    module load anaconda
+    source activate your_conda_env
+
+    jupyter notebook --no-browser --ip=0.0.0.0 --port=8888
+    ```
+
+5. **Submit the job script**:
+    ```sh
+    sbatch run_jupyter.sh
+    ```
+
+6. **Connect to the Jupyter notebook**: Once the job starts, you will get a URL to connect to the Jupyter notebook. Use SSH tunneling to connect to it from your local machine:
+    ```sh
+    ssh -L 8888:localhost:8888 your_username@hpc_cluster_address
+    ```
+
+7. **Open the notebook in your browser**: Open the URL provided by the Jupyter notebook in your web browser.
+
+8. **Open the `Model_Performance_Analysis.ipynb` notebook**: In the Jupyter interface, navigate to the `Model_Performance_Analysis.ipynb` notebook and run the cells to perform the analysis.
+
 
 ## Excel File
 
